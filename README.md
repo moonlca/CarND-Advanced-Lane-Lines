@@ -6,29 +6,29 @@ The Project
 ---
 # only one source code is call 'P2.ipynb'
 
- ## A.Distortion Correction
+ ##    A.Distortion Correction
  
   
  first the camera will snap some photo with a chessboard saved in the folder: camera_cal
  
  after Correction the chessboard will look as a rectangle
 
-## B.apply binarary hightlight to bird view
+##    B.apply binarary hightlight to bird view
 
-### b1.binarary hightlight
+###       b1.binarary hightlight
  By applying a  Color and Gradient combined filter which can highlight the white line and the yellow line as the lane we want to trace
  
-### b2.get the bird view
+###       b2.get the bird view
  with the Perspective Transform we can focus on the front road part and reshapeto the bird view
   
- ## C.trace the line
+ ##    C.trace the line
  
- ### c1. using the Histogram Peaks can recogizate the left lane and the right lane 
+ ###       c1. using the Histogram Peaks can recogizate the left lane and the right lane 
  
- ### c2. compute the curveradius and the diff_from_center
+ ###       c2. compute the curveradius and the diff_from_center
  
 
-## D.use a pipline to include all process
+##    D.use a pipline to include all process
 
  process the pipline on project_video.mp4
  and save the output video as  project_video_out.mp4
