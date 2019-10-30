@@ -2,41 +2,41 @@
 [![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)
 
 
-In this project, your goal is to write a software pipeline to identify the lane boundaries in a video, but the main output or product we want you to create is a detailed writeup of the project.  Check out the [writeup template](https://github.com/udacity/CarND-Advanced-Lane-Lines/blob/master/writeup_template.md) for this project and use it as a starting point for creating your own writeup.  
-
-Creating a great writeup:
----
-A great writeup should include the rubric points as well as your description of how you addressed each point.  You should include a detailed description of the code used in each step (with line-number references and code snippets where necessary), and links to other supporting documents or external references.  You should include images in your writeup to demonstrate how your code works with examples.  
-
-All that said, please be concise!  We're not looking for you to write a book here, just a brief description of how you passed each rubric point, and references to the relevant code :). 
-
-You're not required to use markdown for your writeup.  If you use another method please just submit a pdf of your writeup.
-
 The Project
 ---
 # only one source code is call 'P2.ipynb'
 
- Camera calibration// training with camera_cal image
+ ## A.Distortion Correction
  
- Camera calibration// test with camera_cal-1 image and  the test_images/test1.jpg
+  
+ first the camera will snap some photo with a chessboard saved in the folder: camera_cal
  
- apply a  Color and Gradient combined filter
+ after Correction the chessboard will look as a rectangle
+
+## B.apply binarary hightlight to bird view
+
+### b1.binarary hightlight
+ By applying a  Color and Gradient combined filter which can highlight the white line and the yellow line as the lane we want to trace
  
- warper with perspect tranform to get the bird view
+### b2.get the bird view
+ with the Perspective Transform we can focus on the front road part and reshapeto the bird view
+  
+ ## C.trace the line
  
- apply combined_filter to bird view
+ ### c1. using the Histogram Peaks can recogizate the left lane and the right lane 
  
- Using shifting windows to trace the line
- 
- compute the curverad and the diff_from_center
+ ### c2. compute the curveradius and the diff_from_center
  
 
-# use a pipline to include all process
+## D.use a pipline to include all process
 
- process the pipline on project_video_out.mp4
+ process the pipline on project_video.mp4
+ and save the output video as  project_video_out.mp4
 
 
 
-## How to write a README
-A well written README file can enhance your project and portfolio.  Develop your abilities to create professional README files by completing [this free course](https://www.udacity.com/course/writing-readmes--ud777).
-
+# Discussion
+the curveradius will somehow have a small value in a discontinuous straight line 
+we might patch the Discontinuous part using interpolation in the future
+also the video render speed is not enough to process realtime.
+the pipeline has to boost up to meet the realtime requirements.
